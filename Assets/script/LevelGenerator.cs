@@ -4,80 +4,65 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
+    [SerializeField] private GameObject Level;
     [SerializeField] private GameObject Column;
-    [SerializeField] private GameObject ColumnParent;
     [SerializeField] private GameObject Floor;
-    [SerializeField] private GameObject FloorSegment;
-    [SerializeField] private GameObject Kill;
-    [SerializeField] private GameObject Glass;
-    [SerializeField] private int SegmentsQuantity;
+    [SerializeField] private GameObject BasicSegment;
+    [SerializeField] private GameObject KillSegment;
+    [SerializeField] private GameObject GlassSegment;
+
+    [SerializeField] private int FloorsNumber;
+    [SerializeField] private int FloorsGap;
+    [SerializeField] private int SegmentsNumber;
     [SerializeField] private int AngleDiff;
-    [SerializeField] private int Difficulty;
 
     private void Start()
     {
-        for(int k = 0; k < 10; k++){
-        
-            var columnIns = Instantiate(Column);
-            var parentFloorInstance = Instantiate(Floor);
-            var rand = Random.Range(0, 24);
-            var rand2 = Random.Range(0, 24);
-            var rand3 = Random.Range(0, 24);
-            var rand4 = Random.Range(0, 24);
-            var diff = 0;
-            var of = 0;
-            var go = 0;
-            var pass = 0;
-            if(Difficulty > 0 && Difficulty <= 5){
-                diff = 1;
-            } else if(Difficulty > 5){
-                diff = 0;
+        GenerateLevel();
+    }
+
+    private void GenerateLevel()
+    {
+        var levelInstance = Instantiate(Level);
+
+        var columnInstance = Instantiate(Column, levelInstance.transform);
+        columnInstance.transform.position = new Vector3(0f, FloorsGap * FloorsNumber * 0.5f, 0f);
+        columnInstance.transform.localScale = new Vector3(2f, FloorsGap * FloorsNumber * 0.5f, 2f);
+
+        GenerateFloors(levelInstance);
+    }
+
+
+    private void GenerateFloors(GameObject levelObject)
+    {
+        for (int i = 0; i < FloorsNumber; i++)
+        {
+            var floorSpawnPosition = new Vector3(0.0f, i * FloorsGap, 0.0f);
+            var floorInstance = Instantiate(Floor, floorSpawnPosition, Quaternion.identity, levelObject.transform);
+
+            var gapBasis = Random.Range(0, SegmentsNumber); // switch to level difficulty
+            int[] gapIndexes = new int[5];
+            int indexIncrement = -2;
+
+            for (int index = 0; index < gapIndexes.Length; index++)
+            {
+                gapIndexes[index] = gapBasis - indexIncrement;
+                indexIncrement++;
             }
 
-
-            var spawnPosition = new Vector3(0.0f, 0.0f+7*k, 0.0f);
-            for (int i = 0; i < 24; i++)
+            for (int j = 0; j < SegmentsNumber; j++)
             {
-                if(rand == of){
-                    go++;
-                    of++;
+                if (gapIndexes.Contains(j))
+                {
                     continue;
-                } else {
-                    if(go == 1 && diff == 1){
-                        of++;
-                        diff--;
-                        continue;
-                    } else {
-                        if(rand2 == of){ 
-                            var killSegmentInstance = Instantiate(Kill, spawnPosition, Quaternion.identity, parentFloorInstance.transform);
-                            killSegmentInstance.transform.Rotate(0.0f, AngleDiff * i, 0.0f, Space.Self);
-                            of++;
-                            pass = i + 1;
-                            killSegmentInstance = Instantiate(Kill, spawnPosition, Quaternion.identity, parentFloorInstance.transform);
-                            killSegmentInstance.transform.Rotate(0.0f, AngleDiff * pass, 0.0f, Space.Self);
-                            of++;
-                            i++;
-                            pass = 0;
-                        } else if(rand3 == of) {
-                            var glassSegmentInstance = Instantiate(Glass, spawnPosition, Quaternion.identity, parentFloorInstance.transform);
-                            glassSegmentInstance.transform.Rotate(0.0f, AngleDiff * i, 0.0f, Space.Self);
-                            of++;
-                            pass = i + 1;
-                            glassSegmentInstance = Instantiate(Glass, spawnPosition, Quaternion.identity, parentFloorInstance.transform);
-                            glassSegmentInstance.transform.Rotate(0.0f, AngleDiff * pass, 0.0f, Space.Self);
-                            of++;
-                            i++;
-                            pass = 0;
-                            continue;
-                        } else {
-                            var floorSegmentInstance = Instantiate(FloorSegment, spawnPosition, Quaternion.identity, parentFloorInstance.transform);
-                            floorSegmentInstance.transform.Rotate(0.0f, AngleDiff * i, 0.0f, Space.Self);
-                            of++;
-                        }
-                    }
+                }
+                else
+                {
+                    var floorSegmentInstance = Instantiate(BasicSegment, floorSpawnPosition, Quaternion.identity, floorInstance.transform);
+                    floorSegmentInstance.transform.Rotate(0.0f, AngleDiff * j, 0.0f, Space.Self);
                 }
             }
-            var columnSegmentInstance = Instantiate(Column, spawnPosition, Quaternion.identity, ColumnParent.transform);
         }
     }
+
 }
