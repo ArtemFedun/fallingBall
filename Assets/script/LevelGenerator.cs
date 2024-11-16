@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -43,6 +44,15 @@ public class LevelGenerator : MonoBehaviour
             var gapBasis = Random.Range(0, SegmentsNumber); // switch to level difficulty
             int[] gapIndexes = new int[5];
             int indexIncrement = -2;
+            int randomKillBlock = Random.Range(0, SegmentsNumber);
+
+            while (true){
+                if(randomKillBlock == gapBasis || randomKillBlock + 1 == gapBasis || randomKillBlock + 2 == gapBasis){
+                    randomKillBlock = Random.Range(0, SegmentsNumber);
+                } else {
+                    break;
+                }
+            }
 
             for (int index = 0; index < gapIndexes.Length; index++)
             {
@@ -54,15 +64,23 @@ public class LevelGenerator : MonoBehaviour
             {
                 if (gapIndexes.Contains(j))
                 {
+                    j++;
                     continue;
+                }
+                else if(j == randomKillBlock)
+                {
+                    var KillSegmentYes = Instantiate(KillSegment, floorSpawnPosition, Quaternion.identity, floorInstance.transform);
+                    KillSegmentYes.transform.Rotate(0.0f, AngleDiff * j, 0.0f, Space.Self);
+                    j++;
                 }
                 else
                 {
                     var floorSegmentInstance = Instantiate(BasicSegment, floorSpawnPosition, Quaternion.identity, floorInstance.transform);
                     floorSegmentInstance.transform.Rotate(0.0f, AngleDiff * j, 0.0f, Space.Self);
+                    j++;
                 }
             }
-        }
+        } 
     }
 
 }

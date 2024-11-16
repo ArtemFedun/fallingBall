@@ -157,15 +157,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5c3820dcc878c438a2345ff4f06dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Level: {fileID: 698509819}
   Column: {fileID: 101525114}
-  ColumnParent: {fileID: 101525114}
   Floor: {fileID: 919132149155446097, guid: c57f8248e7857094ba73d69ce4048b26, type: 3}
-  FloorSegment: {fileID: 919132149155446097, guid: c57f8248e7857094ba73d69ce4048b26, type: 3}
-  Kill: {fileID: 5233770580175089355, guid: 5d28a450fe7065c49a0ecbafd44b9ff1, type: 3}
-  Glass: {fileID: 4502278728957439854, guid: a691faa423193b847a4f297093edec8b, type: 3}
-  SegmentsQuantity: 24
+  BasicSegment: {fileID: 800457430}
+  KillSegment: {fileID: 885036721}
+  GlassSegment: {fileID: 955002638}
+  FloorsNumber: 1
+  FloorsGap: 2
+  SegmentsNumber: 24
   AngleDiff: 15
-  Difficulty: 3
 --- !u!4 &698509821
 Transform:
   m_ObjectHideFlags: 0
@@ -332,6 +333,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d28a450fe7065c49a0ecbafd44b9ff1, type: 3}
+--- !u!1 &800457430 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c57f8248e7857094ba73d69ce4048b26, type: 3}
+  m_PrefabInstance: {fileID: 1752299274}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &885036721 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5233770580175089355, guid: 5d28a450fe7065c49a0ecbafd44b9ff1, type: 3}
+  m_PrefabInstance: {fileID: 715930331}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &955002638 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4502278728957439854, guid: a691faa423193b847a4f297093edec8b, type: 3}
+  m_PrefabInstance: {fileID: 1949939952}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
