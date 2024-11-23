@@ -43,8 +43,9 @@ public class LevelGenerator : MonoBehaviour
 
             var gapBasis = Random.Range(0, SegmentsNumber); // switch to level difficulty
             int[] gapIndexes = new int[5];
-            int indexIncrement = -2;
-            int randomKillBlock = Random.Range(0, SegmentsNumber);
+            int indexIncrement = -3;
+            int randomKillBlock = Random.Range(0, SegmentsNumber);  
+
 
             while (true){
                 if(randomKillBlock == gapBasis || randomKillBlock + 1 == gapBasis || randomKillBlock + 2 == gapBasis){
@@ -62,22 +63,23 @@ public class LevelGenerator : MonoBehaviour
 
             for (int j = 0; j < SegmentsNumber; j++)
             {
-                if (gapIndexes.Contains(j))
+                if(i == 0){
+                    var KillSegmentYes = Instantiate(KillSegment, floorSpawnPosition, Quaternion.identity, floorInstance.transform);
+                    KillSegmentYes.transform.Rotate(0.0f, AngleDiff * j, 0.0f, Space.Self);
+                }
+                else if (gapIndexes.Contains(j))
                 {
-                    j++;
                     continue;
                 }
                 else if(j == randomKillBlock)
                 {
                     var KillSegmentYes = Instantiate(KillSegment, floorSpawnPosition, Quaternion.identity, floorInstance.transform);
                     KillSegmentYes.transform.Rotate(0.0f, AngleDiff * j, 0.0f, Space.Self);
-                    j++;
                 }
                 else
                 {
                     var floorSegmentInstance = Instantiate(BasicSegment, floorSpawnPosition, Quaternion.identity, floorInstance.transform);
                     floorSegmentInstance.transform.Rotate(0.0f, AngleDiff * j, 0.0f, Space.Self);
-                    j++;
                 }
             }
         } 
