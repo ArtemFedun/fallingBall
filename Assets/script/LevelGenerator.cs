@@ -16,6 +16,10 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private int FloorsGap;
     [SerializeField] private int SegmentsNumber;
     [SerializeField] private int AngleDiff;
+    [SerializeField] private int GapDifficulty;
+    [SerializeField] private int KillDifficulty;
+
+    private int killSegments = 0;
 
     private void Start()
     {
@@ -36,45 +40,42 @@ public class LevelGenerator : MonoBehaviour
 
     private void GenerateFloors(GameObject levelObject)
     {
-        for (int i = 0; i < FloorsNumber; i++)
+        for(int i = 0; i < FloorsNumber; i++)
         {
             var floorSpawnPosition = new Vector3(0.0f, i * FloorsGap, 0.0f);
             var floorInstance = Instantiate(Floor, floorSpawnPosition, Quaternion.identity, levelObject.transform);
 
-            var gapBasis = Random.Range(0, SegmentsNumber); // switch to level difficulty
-            int[] gapIndexes = new int[5];
-            int indexIncrement = -3;
-            int randomKillBlock = Random.Range(0, SegmentsNumber);  
+            var gapBasis = Random.Range(0, SegmentsNumber); 
+            int[] gapIndexes = new int[GapDifficulty];
+            int[] killIndexes = new int[KillDifficulty];
+            var killBegin = (gapBasis + GapDifficulty) % SegmentsNumber;
 
+            for (int j = 0; j < KillDifficulty; j++)
+            {
+                var killIndex = (killBegin + Random.Range(0, SegmentsNumber - GapDifficulty)) % SegmentsNumber;
 
-            while (true){
-                if(randomKillBlock == gapBasis || randomKillBlock + 1 == gapBasis || randomKillBlock + 2 == gapBasis){
-                    randomKillBlock = Random.Range(0, SegmentsNumber);
-                } else {
-                    break;
+                while (killIndexes.Contains(killIndex))
+                {
+                    killIndex = (killBegin + Random.Range(0, SegmentsNumber - GapDifficulty)) % SegmentsNumber;
                 }
+
+                killIndexes[j] = killIndex;
             }
 
             for (int index = 0; index < gapIndexes.Length; index++)
             {
-                gapIndexes[index] = gapBasis - indexIncrement;
-                indexIncrement++;
+                gapIndexes[index] = (gapBasis + index) % SegmentsNumber;
             }
-
             for (int j = 0; j < SegmentsNumber; j++)
             {
-                if(i == 0){
-                    var KillSegmentYes = Instantiate(KillSegment, floorSpawnPosition, Quaternion.identity, floorInstance.transform);
-                    KillSegmentYes.transform.Rotate(0.0f, AngleDiff * j, 0.0f, Space.Self);
-                }
-                else if (gapIndexes.Contains(j))
+                if (gapIndexes.Contains(j))
                 {
                     continue;
                 }
-                else if(j == randomKillBlock)
+                else if (killIndexes.Contains(j))
                 {
-                    var KillSegmentYes = Instantiate(KillSegment, floorSpawnPosition, Quaternion.identity, floorInstance.transform);
-                    KillSegmentYes.transform.Rotate(0.0f, AngleDiff * j, 0.0f, Space.Self);
+                    var killSegmentInstance = Instantiate(KillSegment, floorSpawnPosition, Quaternion.identity, floorInstance.transform);
+                    killSegmentInstance.transform.Rotate(0.0f, AngleDiff * j, 0.0f, Space.Self);
                 }
                 else
                 {
@@ -82,7 +83,7 @@ public class LevelGenerator : MonoBehaviour
                     floorSegmentInstance.transform.Rotate(0.0f, AngleDiff * j, 0.0f, Space.Self);
                 }
             }
-        } 
+        }
     }
 
 }

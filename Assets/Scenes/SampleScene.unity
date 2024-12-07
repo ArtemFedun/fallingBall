@@ -163,10 +163,12 @@ MonoBehaviour:
   BasicSegment: {fileID: 800457430}
   KillSegment: {fileID: 885036721}
   GlassSegment: {fileID: 955002638}
-  FloorsNumber: 5
+  FloorsNumber: 15
   FloorsGap: 5
   SegmentsNumber: 24
   AngleDiff: 15
+  GapDifficulty: 3
+  KillDifficulty: 5
 --- !u!4 &698509821
 Transform:
   m_ObjectHideFlags: 0
