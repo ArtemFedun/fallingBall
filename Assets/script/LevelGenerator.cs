@@ -15,11 +15,11 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private int FloorsNumber;
     [SerializeField] private int FloorsGap;
     [SerializeField] private int SegmentsNumber;
-    [SerializeField] private int AngleDiff;
+    [SerializeField] private int AngleDelta;
     [SerializeField] private int GapDifficulty;
     [SerializeField] private int KillDifficulty;
-
-    private int killSegments = 0;
+    [SerializeField] private int LevelDifficulty;
+    [SerializeField] private int ChangeDifficulty;
 
     private void Start()
     {
@@ -42,8 +42,49 @@ public class LevelGenerator : MonoBehaviour
     {
         for(int i = 0; i < FloorsNumber; i++)
         {
+            var GlassDifficulty = 0;
+            var GapDifference = 0;
+            var LevelDifficulty = 0;
+            
             var floorSpawnPosition = new Vector3(0.0f, i * FloorsGap, 0.0f);
             var floorInstance = Instantiate(Floor, floorSpawnPosition, Quaternion.identity, levelObject.transform);
+
+            switch (ChangeDifficulty)
+            {
+                case 1:
+                    GlassDifficulty = 0;
+                    GapDifference = 2;
+                    LevelDifficulty = 5;
+                    Debug.Log("1");
+                    break;
+                case 2:
+                    GlassDifficulty = 0;
+                    GapDifference = 4;
+                    LevelDifficulty = 5;
+                    Debug.Log("2");
+                    break;
+                case 3:
+                    GlassDifficulty = 2;
+                    GapDifference = 6;
+                    LevelDifficulty = 4;
+                    Debug.Log("3");
+                    break;
+                case 4:
+                    GlassDifficulty = 4;
+                    GapDifference = 8;
+                    LevelDifficulty = 4;
+                    Debug.Log("4");
+                    break;
+                default:
+                    if (ChangeDifficulty >= 1 && ChangeDifficulty <= 5)
+                    {
+                        GlassDifficulty = 6;
+                        GapDifference = 10;
+                        LevelDifficulty = 3;
+                        Debug.Log("5");
+                    }
+                    break;
+            }
 
             var gapBasis = Random.Range(0, SegmentsNumber); 
             int[] gapIndexes = new int[GapDifficulty];
@@ -66,6 +107,7 @@ public class LevelGenerator : MonoBehaviour
             {
                 gapIndexes[index] = (gapBasis + index) % SegmentsNumber;
             }
+
             for (int j = 0; j < SegmentsNumber; j++)
             {
                 if (gapIndexes.Contains(j))
@@ -75,12 +117,12 @@ public class LevelGenerator : MonoBehaviour
                 else if (killIndexes.Contains(j))
                 {
                     var killSegmentInstance = Instantiate(KillSegment, floorSpawnPosition, Quaternion.identity, floorInstance.transform);
-                    killSegmentInstance.transform.Rotate(0.0f, AngleDiff * j, 0.0f, Space.Self);
+                    killSegmentInstance.transform.Rotate(0.0f, AngleDelta * j, 0.0f, Space.Self);
                 }
                 else
                 {
                     var floorSegmentInstance = Instantiate(BasicSegment, floorSpawnPosition, Quaternion.identity, floorInstance.transform);
-                    floorSegmentInstance.transform.Rotate(0.0f, AngleDiff * j, 0.0f, Space.Self);
+                    floorSegmentInstance.transform.Rotate(0.0f, AngleDelta * j, 0.0f, Space.Self);
                 }
             }
         }
