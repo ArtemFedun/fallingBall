@@ -112,6 +112,14 @@ public class LevelGenerator : MonoBehaviour
             {
                 if (gapIndexes.Contains(j))
                 {
+                    var shift = 0;
+                    if (gapIndexes.Contains(j))
+                    {
+                        shift = Random.Range(0, 2) == 0 ? -2 : 2; // Випадкове зміщення вліво або вправо
+                        Debug.Log($"Segment {j} shifted by {shift}");
+                        j = (j + shift + SegmentsNumber) % SegmentsNumber; // Зміщення індексу
+                        continue;
+                    }
                     continue;
                 }
                 else if (killIndexes.Contains(j))
