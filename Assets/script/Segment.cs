@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Segment : MonoBehaviour
 {
-    public int index;
+    public int Index;
 }
