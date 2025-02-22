@@ -5,15 +5,25 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public float rotationSpeed = 0.1f;
-
+    float rotY = 0;
+    
     void Update()
     {
         if (Input.GetMouseButton(0)) 
         {
-            float mouseX = Input.mousePosition.x;
-            float rotationY = mouseX * rotationSpeed; 
+            float mouseX = Input.mousePosition.x;    
+            float rotationY = (mouseX * rotationSpeed) + rotY;  
 
-            transform.rotation = Quaternion.Euler(0, rotationY, 0); 
+            if (Input.GetMouseButtonUp(0)){
+                rotY = rotationY;
+            }
+      
+            transform.rotation = Quaternion.Euler(0, rotationY, 0);  
+        } else {
+            float mouseX = Input.mousePosition.x;    
+            float rotationY = (mouseX * rotationSpeed) + rotY;  
+            rotY = rotationY;
         }
+        
     }
 }

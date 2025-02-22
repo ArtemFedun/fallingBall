@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 7979807290482711012}
   - component: {fileID: 5285272380675697966}
   - component: {fileID: -4722286767521722242}
+  - component: {fileID: -1096491190247748725}
   m_Layer: 0
   m_Name: BasicSegment
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,4 +97,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67730e931c2279b49b97f73e8b29c388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 0
+  Index: 0
+--- !u!64 &-1096491190247748725
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5934041485102288123}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2124705421725058983, guid: efa88b4d911473540aff0110a7d021c3, type: 3}
