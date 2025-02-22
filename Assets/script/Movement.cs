@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float rotationSpeed = 0.1f;
+    public float rotationSpeed;
     float rotY = 0;
     
     void Update()
@@ -12,17 +12,13 @@ public class Movement : MonoBehaviour
         if (Input.GetMouseButton(0)) 
         {
             float mouseX = Input.mousePosition.x;    
-            float rotationY = (mouseX * rotationSpeed) + rotY;  
+            float rotationY = (mouseX * -rotationSpeed) + rotY;  
 
-            if (Input.GetMouseButtonUp(0)){
-                rotY = rotationY;
-            }
+            // if (Input.GetMouseButtonUp(0)){
+            //     rotY = rotationY;
+            // }
       
             transform.rotation = Quaternion.Euler(0, rotationY, 0);  
-        } else {
-            float mouseX = Input.mousePosition.x;    
-            float rotationY = (mouseX * rotationSpeed) + rotY;  
-            rotY = rotationY;
         }
         
     }
