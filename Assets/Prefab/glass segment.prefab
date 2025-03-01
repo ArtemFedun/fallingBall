@@ -13,7 +13,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: fbd4bed94e1b6de4992582a0229b0ab0, type: 2}
     - target: {fileID: 5934041485102288123, guid: f718032f0f7b0474499a8660a3651d63, type: 3}
       propertyPath: m_Name
-      value: BasicSegment
+      value: glass segment
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934041485102288123, guid: f718032f0f7b0474499a8660a3651d63, type: 3}
+      propertyPath: m_TagString
+      value: Glass
       objectReference: {fileID: 0}
     - target: {fileID: 6418231893652952641, guid: f718032f0f7b0474499a8660a3651d63, type: 3}
       propertyPath: m_RootOrder
