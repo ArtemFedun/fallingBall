@@ -9,8 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4914077372975550201}
+<<<<<<< HEAD
   - component: {fileID: 692462276353835315}
   - component: {fileID: 4769234686341928836}
+=======
+  - component: {fileID: 6110094591297310656}
+  - component: {fileID: -1294621099739480998}
+>>>>>>> origin/main
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -33,7 +38,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!114 &692462276353835315
+=======
+--- !u!65 &6110094591297310656
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503815705251920954}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.7531967, y: 1, z: 6.8909216}
+  m_Center: {x: -0.30929852, y: 0, z: 0.277699}
+--- !u!114 &-1294621099739480998
+>>>>>>> origin/main
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,6 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe60eb9768b3b341a5e355d0e9cd565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
 --- !u!65 &4769234686341928836
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -58,3 +81,5 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8, y: 1, z: 8}
   m_Center: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> origin/main
