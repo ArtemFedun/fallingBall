@@ -5,8 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public float rotationSpeed;
-    float rotY = 0;
-    float rotationY;
+    public float rotationY;
     
     void Update()
     {
@@ -14,10 +13,7 @@ public class Movement : MonoBehaviour
         {
             float mouseX = Input.GetAxis("Mouse X");    
             rotationY += mouseX * rotationSpeed;  
-
-
-            transform.rotation = Quaternion.Euler(0, rotationY, 0);  
+            transform.rotation = Quaternion.Euler(0, -rotationY, 0);  
         }
-        
     }
 }

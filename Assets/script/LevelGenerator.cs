@@ -11,6 +11,7 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private GameObject BasicSegment;
     [SerializeField] private GameObject KillSegment;
     [SerializeField] private GameObject GlassSegment;
+    [SerializeField] private GameObject FinishSegment;
 
     [SerializeField] private int FloorsNumber;
     [SerializeField] private int FloorsGap;
@@ -74,71 +75,67 @@ public class LevelGenerator : MonoBehaviour
         columnInstance.transform.position = new Vector3(0f, FloorsGap * FloorsNumber * -0.5f, 0f);
         columnInstance.transform.localScale = new Vector3(2f, FloorsGap * FloorsNumber * 0.5f, 2f);
 
-        GenerateFloors(levelInstance);
+        SpawnFloors(levelInstance);
+        SpawnFinish(levelInstance);
     }
 
-
-    private void GenerateFloors(GameObject levelObject)
+    private void SpawnFloors(GameObject levelObject)
     {
         var gapBasis = Random.Range(0, SegmentsNumber); // Вибираємо перший рандомний індекс
 
-        for (int i = 0; i < FloorsNumber; i++)
+        for (int floorIndex = 0; floorIndex < FloorsNumber; floorIndex++)
         {
-            var floorSpawnPosition = new Vector3(0.0f, -i * FloorsGap, 0.0f);
+            var floorSpawnPosition = new Vector3(0.0f, -floorIndex * FloorsGap, 0.0f);
             var floorInstance = Instantiate(Floor, floorSpawnPosition, Quaternion.identity, levelObject.transform);
 
         //********************* РОЗРАХУНОК GAPS *********************//
-
             int[] gapIndexes = new int[GapDifficulty];
             GenerateGaps(gapBasis, gapIndexes);
-
         //**********************************************************//
 
         //********************** РОЗРАХУНОК KILLBLOCKS **********************//
             int[] killIndexes = new int[KillDifficulty];
             var killBegin = (gapBasis + GapDifficulty) % SegmentsNumber;
             GenerateKill(killIndexes, killBegin);
-
         //*****************************************************************//
         
-
-        //********************** РОЗРАХУНОК GLASSBLOCKS **********************//
-             
-
+        //********************** РОЗРАХУНОК GLASSBLOCKS **********************/
             int[] glassIndexes = new int[GlassDifficulty];
             var glassBegin = (gapBasis + GapDifficulty) % SegmentsNumber;
             GenerateGlass(glassIndexes, glassBegin, killIndexes);
-  
         //*****************************************************************//
 
         //********************** ЗАПОВНЕННЯ ПОВЕРХУ **********************//
-            for (int j = 0; j < SegmentsNumber; j++)
+            for (int segmentIndex = 0; segmentIndex < SegmentsNumber; segmentIndex++)
             {
-                void vari(GameObject x){
-                    var SegmentInstance = Instantiate(x, floorSpawnPosition, Quaternion.identity, floorInstance.transform);
-                    SegmentInstance.transform.Rotate(0.0f, AngleDiff * j, 0.0f, Space.Self);
-                    SegmentInstance.GetComponent<Segment>().Index = j;
-                }
-                if (gapIndexes.Contains(j))
+                if (gapIndexes.Contains(segmentIndex))
                 {
                     continue;
                 }
-                else if (killIndexes.Contains(j))
+                else if (killIndexes.Contains(segmentIndex))
                 {
-                    vari(KillSegment);
+                    SpawnSegment(KillSegment, floorSpawnPosition, floorInstance, segmentIndex);
                 }
-                else if (glassIndexes.Contains(j))
+                else if (glassIndexes.Contains(segmentIndex))
                 {
-                    vari(GlassSegment);
+                    SpawnSegment(GlassSegment, floorSpawnPosition, floorInstance, segmentIndex);
                 }
                 else
                 {
-                    vari(BasicSegment);
+                    SpawnSegment(BasicSegment, floorSpawnPosition, floorInstance, segmentIndex);
                 }
             }
         //*****************************************************************//
         }
     }
+
+    private void SpawnSegment(GameObject segment, Vector3 floorSpawnPosition, GameObject floorInstance, int index)
+    {
+        var SegmentInstance = Instantiate(segment, floorSpawnPosition, Quaternion.identity, floorInstance.transform);
+        SegmentInstance.transform.Rotate(0.0f, AngleDiff * index, 0.0f, Space.Self);
+        SegmentInstance.GetComponent<Segment>().Index = index;
+    }
+
     private void GenerateGaps(int gapBasis, int[] gapIndexes){
         gapBasis = (gapBasis + Random.Range(-GapDifference, GapDifference)) % SegmentsNumber;
 
@@ -147,6 +144,7 @@ public class LevelGenerator : MonoBehaviour
             gapIndexes[index] = (gapBasis + index) % SegmentsNumber;
         }
     }
+
     private void GenerateKill(int[] killIndexes, int killBegin){
 
         for (int j = 0; j < KillDifficulty; j++)
@@ -161,6 +159,7 @@ public class LevelGenerator : MonoBehaviour
             killIndexes[j] = killIndex;
         }
     }
+
     private void GenerateGlass(int[] glassIndexes, int glassBegin, int[] killIndexes){
 
         for (int j = 0; j < GlassDifficulty; j++)
@@ -173,6 +172,17 @@ public class LevelGenerator : MonoBehaviour
             }
 
             glassIndexes[j] = glassIndex;
+        }
+    }
+
+    private void SpawnFinish(GameObject levelObject)
+    {
+        var floorSpawnPosition = new Vector3(0.0f, -FloorsNumber * FloorsGap, 0.0f);
+        var floorInstance = Instantiate(Floor, floorSpawnPosition, Quaternion.identity, levelObject.transform);
+
+        for (int segmentIndex = 0; segmentIndex < SegmentsNumber; segmentIndex++)
+        {
+            SpawnSegment(FinishSegment, floorSpawnPosition, floorInstance, segmentIndex);
         }
     }
 }
