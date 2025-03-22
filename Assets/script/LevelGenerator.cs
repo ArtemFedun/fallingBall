@@ -177,12 +177,12 @@ public class LevelGenerator : MonoBehaviour
 
     private void SpawnFinish(GameObject levelObject)
     {
-        var floorSpawnPosition = new Vector3(0.0f, -FloorsNumber * FloorsGap, 0.0f);
-        var floorInstance = Instantiate(Floor, floorSpawnPosition, Quaternion.identity, levelObject.transform);
+        var floorSpawnPosition = new Vector3(0.0f, FloorsNumber, 0.0f);
+        var FinishInstance = Instantiate(FinishSegment, floorSpawnPosition, Quaternion.identity, levelObject.transform);
 
         for (int segmentIndex = 0; segmentIndex < SegmentsNumber; segmentIndex++)
         {
-            SpawnSegment(FinishSegment, floorSpawnPosition, floorInstance, segmentIndex);
+            SpawnSegment(FinishSegment, floorSpawnPosition, FinishInstance, segmentIndex);
         }
     }
 }
