@@ -5,7 +5,7 @@ using UnityEngine;
 public class BallFall : MonoBehaviour
 {
     [SerializeField] private GameObject Level;
-    public float bounce, fallingSpeed;
+    public float bounce, fallingSpeed, maxSpeed;
     private Rigidbody rb;
 
     private void Start()
@@ -18,8 +18,11 @@ public class BallFall : MonoBehaviour
         {
             rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y - fallingSpeed, rb.velocity.z);
         }
+        if (rb.velocity.magnitude > maxSpeed)
+        {
+            rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
+        }
     }
-    
 
     private void OnCollisionEnter(Collision collision){
 

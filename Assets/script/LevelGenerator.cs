@@ -18,6 +18,7 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private int SegmentsNumber;
     [SerializeField] private int AngleDiff;
     [SerializeField] private int LevelDifficulty;
+
     private int GapDifference;
     private int GapDifficulty;
     private int GlassDifficulty;
@@ -177,8 +178,8 @@ public class LevelGenerator : MonoBehaviour
 
     private void SpawnFinish(GameObject levelObject)
     {
-        var floorSpawnPosition = new Vector3(0.0f, FloorsNumber, 0.0f);
-        var FinishInstance = Instantiate(FinishSegment, floorSpawnPosition, Quaternion.identity, levelObject.transform);
+        var floorSpawnPosition = new Vector3(0.0f, -FloorsNumber * FloorsGap, 0.0f);
+        var FinishInstance = Instantiate(Floor, floorSpawnPosition, Quaternion.identity, levelObject.transform);
 
         for (int segmentIndex = 0; segmentIndex < SegmentsNumber; segmentIndex++)
         {
