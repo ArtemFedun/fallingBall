@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class SegmentChecker : MonoBehaviour
 {
+
+    [SerializeField] private GameObject panelWon;
+    [SerializeField] private GameObject panelLost;
+
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Kill"){
             gameObject.SetActive(false);
         } else if (other.gameObject.tag == "Finish"){
-            Movement rotatingObject = GameObject.FindObjectOfType<Movement>();
-            rotatingObject.rotationSpeed = 0f;
+            Movement column = GameObject.FindObjectOfType<Movement>();
+            column.MenuPause(true);
+            panelWon.SetActive(true);
         } else if (other.gameObject.tag == "Glass"){
             // TRIGGER TO GLASS
         }
