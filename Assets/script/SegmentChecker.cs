@@ -9,7 +9,8 @@ public class SegmentChecker : MonoBehaviour
         if (other.gameObject.tag == "Kill"){
             gameObject.SetActive(false);
         } else if (other.gameObject.tag == "Finish"){
-            // TRIGGER TO FINISH
+            Movement rotatingObject = GameObject.FindObjectOfType<Movement>();
+            rotatingObject.rotationSpeed = 0f;
         } else if (other.gameObject.tag == "Glass"){
             // TRIGGER TO GLASS
         }
