@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8461354113654454824}
   - component: {fileID: 7810288807924734636}
+  - component: {fileID: 6972072672060434141}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -46,3 +47,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSetting: 3
   rotationY: 0
+--- !u!114 &6972072672060434141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7829724653429810623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25977893f1d95514794f2e34b8ae138f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
