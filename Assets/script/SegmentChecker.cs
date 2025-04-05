@@ -1,15 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SegmentChecker : MonoBehaviour
 {
-
     [SerializeField] private GameObject panelWon;
     [SerializeField] private GameObject panelLost;
 
-    private void OnCollisionEnter(Collision other)
+
+    private void OnCollisionEnter(Collision collision)
     {
+        GameObject other = collision.gameObject;
         if (other.gameObject.tag == "Kill"){
             gameObject.SetActive(false);
         } else if (other.gameObject.tag == "Finish"){
@@ -17,7 +16,7 @@ public class SegmentChecker : MonoBehaviour
             column.MenuPause(true);
             panelWon.SetActive(true);
         } else if (other.gameObject.tag == "Glass"){
-            // TRIGGER TO GLASS
+            collision.gameObject.SetActive(false);
         }
     }
 }
