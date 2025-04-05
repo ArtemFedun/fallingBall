@@ -407,11 +407,13 @@ MonoBehaviour:
   KillSegment: {fileID: 5934041485102288123, guid: af6fbd10676f070429f0df474ce492e5, type: 3}
   GlassSegment: {fileID: 2670677658843339240, guid: 1feaa3d8a93ecea41ad475500f2e059e, type: 3}
   FinishSegment: {fileID: 5934041485102288123, guid: 01f7bbf4157decc4d83b029414929290, type: 3}
-  FloorsNumber: 1
+  FloorsNumber: 10
   FloorsGap: 7
   SegmentsNumber: 24
   AngleDiff: 15
-  LevelDifficulty: 5
+  LevelDifficulty: 2
+  GlassStreak: 3
+  KillStreak: 3
 --- !u!4 &698509821
 Transform:
   m_ObjectHideFlags: 0
@@ -575,7 +577,7 @@ MonoBehaviour:
   Level: {fileID: 919132149155446097, guid: efa88b4d911473540aff0110a7d021c3, type: 3}
   bounce: 10
   fallingSpeed: 0.5
-  maxSpeed: 0
+  maxSpeed: 50
 --- !u!4 &850500911
 Transform:
   m_ObjectHideFlags: 0
