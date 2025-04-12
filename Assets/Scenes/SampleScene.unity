@@ -411,7 +411,7 @@ MonoBehaviour:
   FloorsGap: 7
   SegmentsNumber: 24
   AngleDiff: 15
-  LevelDifficulty: 2
+  LevelDifficulty: 5
   GlassStreak: 3
   KillStreak: 3
 --- !u!4 &698509821

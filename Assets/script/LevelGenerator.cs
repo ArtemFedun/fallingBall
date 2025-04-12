@@ -32,7 +32,7 @@ public class LevelGenerator : MonoBehaviour
     {
         ChangeDifficulty(LevelDifficulty);
         GenerateLevel();
-        totalIndexes = new int[GapDifficulty + GlassDifficulty + KillDifficulty];
+        totalIndexes = new int[GapDifficulty + GlassDifficulty * GlassStreak + KillDifficulty * KillStreak];
     }
 
     private void ChangeDifficulty(int levelDifficulty)
@@ -100,14 +100,14 @@ public class LevelGenerator : MonoBehaviour
         //**********************************************************//
             
         //********************** РОЗРАХУНОК KILLBLOCKS **********************//
-            int[] killIndexes = new int[KillDifficulty];
+            int[] killIndexes = new int[KillDifficulty * KillStreak];
             var killBegin = (gapBasis + GapDifficulty) % SegmentsNumber;
             GenerateKill(killIndexes, killBegin);
             totalIndexes = gapIndexes.Concat(killIndexes).ToArray();
         //*****************************************************************//
             
         //********************** РОЗРАХУНОК GLASSBLOCKS **********************/
-            int[] glassIndexes = new int[GlassDifficulty];
+            int[] glassIndexes = new int[GlassDifficulty * GlassStreak];
             var glassBegin = (gapBasis + GapDifficulty) % SegmentsNumber;
             GenerateGlass(glassIndexes, glassBegin);
             totalIndexes = gapIndexes.Concat(killIndexes).Concat(glassIndexes).ToArray();
@@ -178,7 +178,7 @@ public class LevelGenerator : MonoBehaviour
 
             for (int killStreak = 0; killStreak < KillStreak; killStreak++)
             {
-                killIndexes[index + killStreak] = (killIndex + killStreak) % SegmentsNumber;
+                killIndexes[index * KillStreak + killStreak] = (killIndex + killStreak) % SegmentsNumber;
             }
  
         }
@@ -197,7 +197,7 @@ public class LevelGenerator : MonoBehaviour
 
             for (int glassStreak = 0; glassStreak < GlassStreak; glassStreak++)
             {
-                glassIndexes[index + glassStreak] = (glassIndex + glassStreak) % SegmentsNumber;
+                glassIndexes[index * GlassStreak + glassStreak] = (glassIndex + glassStreak) % SegmentsNumber;
             }
         }
     }
