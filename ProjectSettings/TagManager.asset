@@ -8,6 +8,7 @@ TagManager:
   - Glass
   - Ball
   - Kill
+  - Pass
   layers:
   - Default
   - TransparentFX

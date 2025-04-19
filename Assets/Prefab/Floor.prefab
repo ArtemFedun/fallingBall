@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4914077372975550201}
   - component: {fileID: 6110094591297310656}
-  - component: {fileID: -1294621099739480998}
+  - component: {fileID: 3399845889691456413}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Pass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,7 +46,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.7531967, y: 0.3377596, z: 6.8909216}
   m_Center: {x: -0.30929852, y: -0.3311202, z: 0.277699}
---- !u!114 &-1294621099739480998
+--- !u!114 &3399845889691456413
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
