@@ -4,19 +4,42 @@ public class SegmentChecker : MonoBehaviour
 {
     [SerializeField] private GameObject panelWon;
     [SerializeField] private GameObject panelLost;
+    private ScoreHandler score;
 
+    private void Start()
+    {
+        score = gameObject.GetComponent<ScoreHandler>();
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
         GameObject other = collision.gameObject;
-        if (other.gameObject.tag == "Kill"){
-            gameObject.SetActive(false);
-        } else if (other.gameObject.tag == "Finish"){
-            Movement column = GameObject.FindObjectOfType<Movement>();
-            column.MenuPause(true);
-            panelWon.SetActive(true);
-        } else if (other.gameObject.tag == "Glass"){
-            collision.gameObject.SetActive(false);
+        score.ResetStreak();
+
+        switch (other.tag)
+        {
+            case "Ground":            
+                break;
+            case "Finish":
+                Movement column = GameObject.FindObjectOfType<Movement>();
+                column.MenuPause(true);
+                panelWon.SetActive(true);
+                break;
+            case "Kill":
+                gameObject.SetActive(false);
+                panelLost.SetActive(true);
+                break;
+            case "Glass":
+                collision.gameObject.SetActive(false);
+                break;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Floor"))
+        {
+            score.AddScore();
         }
     }
 }
