@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject panelWon;
+    [SerializeField] private GameObject panelLost;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        panelWon.SetActive(false);
+        panelLost.SetActive(false);
     }
 }
