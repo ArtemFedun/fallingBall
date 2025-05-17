@@ -190,11 +190,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &620384319 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6725525234992976655, guid: 522541b76565e4026a687b55c6ce5312, type: 3}
-  m_PrefabInstance: {fileID: 5591019912861425929}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &698509819
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5c3820dcc878c438a2345ff4f06dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: {fileID: 7829724653429810623, guid: a4581ae16a455114f89dedc81b861a5e, type: 3}
+  Level: {fileID: 7687364906436384504, guid: a4581ae16a455114f89dedc81b861a5e, type: 3}
   Column: {fileID: 7395149399601995815, guid: 68a3502931a1abb46a16f5477bdc4e78, type: 3}
   Floor: {fileID: 503815705251920954, guid: 0d44b3b9cb36f3e429fcb6211a71f9cb, type: 3}
   BasicSegment: {fileID: 5934041485102288123, guid: f718032f0f7b0474499a8660a3651d63, type: 3}
@@ -266,8 +261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25977893f1d95514794f2e34b8ae138f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelWon: {fileID: 620384319}
-  panelLost: {fileID: 1636296099}
+  panelWon: {fileID: 4534184302758740190, guid: 2983cbc866bc6e54f8b156e9952e47b9, type: 3}
+  panelLost: {fileID: 2297195537379959886, guid: 8a325a64895476043860c677f33c12c3, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,22 +470,6 @@ MonoBehaviour:
   target: {fileID: 850500911}
   smoothSpeed: 0.125
   offset: {x: 0, y: 0, z: -10}
---- !u!1 &1636296099 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2090355522350077416, guid: 522541b76565e4026a687b55c6ce5312, type: 3}
-  m_PrefabInstance: {fileID: 5591019912861425929}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1833067977 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6085333078654487908, guid: 522541b76565e4026a687b55c6ce5312, type: 3}
-  m_PrefabInstance: {fileID: 5591019912861425929}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5242751622977160161
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -502,7 +481,7 @@ PrefabInstance:
     - target: {fileID: 2537197712923958204, guid: 24a5b981551624e0bb72598727e69198, type: 3}
       propertyPath: scoreText
       value: 
-      objectReference: {fileID: 1833067977}
+      objectReference: {fileID: 0}
     - target: {fileID: 6735602409808825841, guid: 24a5b981551624e0bb72598727e69198, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.03
@@ -550,11 +529,11 @@ PrefabInstance:
     - target: {fileID: 9093507080492734122, guid: 24a5b981551624e0bb72598727e69198, type: 3}
       propertyPath: panelWon
       value: 
-      objectReference: {fileID: 620384319}
+      objectReference: {fileID: 0}
     - target: {fileID: 9093507080492734122, guid: 24a5b981551624e0bb72598727e69198, type: 3}
       propertyPath: panelLost
       value: 
-      objectReference: {fileID: 1636296099}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -583,6 +562,10 @@ PrefabInstance:
     - target: {fileID: 5399647758083571260, guid: 522541b76565e4026a687b55c6ce5312, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6044490838614492188, guid: 522541b76565e4026a687b55c6ce5312, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8356803989989201516, guid: 522541b76565e4026a687b55c6ce5312, type: 3}
       propertyPath: m_Pivot.x

@@ -22,7 +22,6 @@ public class Movement : MonoBehaviour
             rotationY += mouseX * rotationSpeed;  
             transform.rotation = Quaternion.Euler(0, -rotationY, 0);  
         }
-        transform.position = new Vector3(1.4f, 0, -1.55f);  
     }
 
     public void MenuPause(bool pause)
