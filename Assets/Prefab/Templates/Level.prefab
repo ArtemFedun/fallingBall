@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8461354113654454824}
   - component: {fileID: 7810288807924734636}
-  - component: {fileID: 6972072672060434141}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -47,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSetting: 3
   rotationY: 0
+<<<<<<< HEAD:Assets/Prefab/Level.prefab
 --- !u!114 &6972072672060434141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,3 +61,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panelWon: {fileID: 4534184302758740190, guid: 2983cbc866bc6e54f8b156e9952e47b9, type: 3}
   panelLost: {fileID: 2297195537379959886, guid: 8a325a64895476043860c677f33c12c3, type: 3}
+=======
+>>>>>>> e489414eaf8d5969b5ff2b52832fe76e2a2f1118:Assets/Prefab/Templates/Level.prefab
