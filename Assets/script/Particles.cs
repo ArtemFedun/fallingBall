@@ -29,16 +29,19 @@ public class particles : MonoBehaviour
                     par.transform.position = collision.contacts[0].point;
                     par.Play();
 
-                    // Додаємо SpriteRenderer до існуючого spriteObj
+                    spriteObj.transform.position = collision.contacts[0].point;
+                    spriteObj.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                    spriteObj.transform.rotation = Quaternion.Euler(90f, 0f, 0f); 
+
+                    // Встановлюємо спрайт
                     SpriteRenderer renderer = spriteObj.GetComponent<SpriteRenderer>();
-                    if (renderer == null) // Перевіряємо, чи немає ще компонента
+                    if (renderer == null)
                     {
                         renderer = spriteObj.AddComponent<SpriteRenderer>();
                     }
-
-                    Sprite sprite = Resources.Load<Sprite>("pngkey.com-graffiti-splatter-png-8213267");
+                    Sprite sprite = Resources.Load<Sprite>("pngkey.com-holi-colour-splash-png-321924");
                     renderer.sprite = sprite;
-                    spriteObj.transform.position = new Vector3(0, 0, 0);
+
                 }
             }
         }
