@@ -9,6 +9,7 @@ TagManager:
   - Ball
   - Kill
   - Floor
+  - Canvas
   layers:
   - Default
   - TransparentFX
