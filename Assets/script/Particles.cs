@@ -5,7 +5,7 @@ using UnityEngine;
 public class particles : MonoBehaviour
 {
     public ParticleSystem par; 
-    public string a = "Ground"; 
+    public string GroundTag = "Ground"; 
 
     private bool grounded = false;
     private GameObject spriteObj; // Оголосили змінну без ініціалізації
@@ -18,7 +18,7 @@ public class particles : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag(a))
+        if (collision.gameObject.CompareTag(GroundTag))
         {
             if (!grounded)
             {
@@ -49,7 +49,7 @@ public class particles : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.CompareTag(a))
+        if (collision.gameObject.CompareTag(GroundTag))
         {
             grounded = false;
         }

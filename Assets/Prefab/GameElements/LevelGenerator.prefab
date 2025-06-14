@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7676950737536419717
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7241174276204993436}
+  - component: {fileID: 3730592993820059485}
+  - component: {fileID: 8993267280046873871}
+  m_Layer: 0
+  m_Name: LevelGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7241174276204993436
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7676950737536419717}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 41, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3730592993820059485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7676950737536419717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e5c3820dcc878c438a2345ff4f06dd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Level: {fileID: 7687364906436384504, guid: a4581ae16a455114f89dedc81b861a5e, type: 3}
+  Column: {fileID: 7395149399601995815, guid: 68a3502931a1abb46a16f5477bdc4e78, type: 3}
+  Floor: {fileID: 503815705251920954, guid: 0d44b3b9cb36f3e429fcb6211a71f9cb, type: 3}
+  BasicSegment: {fileID: 5934041485102288123, guid: f718032f0f7b0474499a8660a3651d63, type: 3}
+  KillSegment: {fileID: 5934041485102288123, guid: af6fbd10676f070429f0df474ce492e5, type: 3}
+  GlassSegment: {fileID: 2670677658843339240, guid: 1feaa3d8a93ecea41ad475500f2e059e, type: 3}
+  FinishSegment: {fileID: 5934041485102288123, guid: 01f7bbf4157decc4d83b029414929290, type: 3}
+  FloorsNumber: 5
+  FloorsGap: 7
+  SegmentsNumber: 24
+  AngleDiff: 15
+  LevelDifficulty: 1
+  GlassStreak: 3
+  KillStreak: 3
+--- !u!114 &8993267280046873871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7676950737536419717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25977893f1d95514794f2e34b8ae138f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelWon: {fileID: 0}
+  panelLost: {fileID: 0}
