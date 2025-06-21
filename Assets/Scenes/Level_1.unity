@@ -256,7 +256,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 5.078382
   m_Depth: -1
   m_CullingMask:
@@ -281,13 +281,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15280767, y: -0, z: -0, w: 0.988256}
+  m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
   m_LocalPosition: {x: 0, y: 5.68, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 17.579, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,12 +302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   smoothSpeed: 0.125
-  offset: {x: 0, y: 0, z: -10}
---- !u!1 &1636296099 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1632127645589756690, guid: 522541b76565e4026a687b55c6ce5312, type: 3}
-  m_PrefabInstance: {fileID: 6997793021160811360}
-  m_PrefabAsset: {fileID: 0}
+  offset: {x: 0, y: 0, z: -15}
 --- !u!114 &1833067977 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8015076450826719560, guid: 522541b76565e4026a687b55c6ce5312, type: 3}
@@ -327,6 +322,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1331181199865514329, guid: 24a5b981551624e0bb72598727e69198, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6735602409808825841, guid: 24a5b981551624e0bb72598727e69198, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -371,6 +370,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 9046683692565486405, guid: 24a5b981551624e0bb72598727e69198, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 1748820971652155210, guid: a092f155ee0e443dcbcab0891e722585, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -384,6 +387,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8993267280046873871, guid: 6439b9b6df4dd4f23bf92ea9fd585b34, type: 3}
+      propertyPath: panelLost
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2537197712923958204, guid: 24a5b981551624e0bb72598727e69198, type: 3}
       propertyPath: scoreText
       value: 
@@ -448,10 +455,6 @@ PrefabInstance:
       propertyPath: panelWon
       value: 
       objectReference: {fileID: 620384319}
-    - target: {fileID: 8993267280046873871, guid: 6439b9b6df4dd4f23bf92ea9fd585b34, type: 3}
-      propertyPath: panelLost
-      value: 
-      objectReference: {fileID: 1636296099}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

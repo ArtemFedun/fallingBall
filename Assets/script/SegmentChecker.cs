@@ -9,6 +9,8 @@ public class SegmentChecker : MonoBehaviour
     private void Start()
     {
         score = gameObject.GetComponent<ScoreHandler>();
+        panelWon = GameObject.FindGameObjectWithTag("Canvas").transform.GetChild(1).gameObject;
+        panelLost = GameObject.FindGameObjectWithTag("Canvas").transform.GetChild(0).gameObject;
     }
 
     private void OnCollisionEnter(Collision collision)

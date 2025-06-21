@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class particles : MonoBehaviour
 {
-    public ParticleSystem par; 
+    public GameObject hitParticles; // Публічна змінна для системи частинок
     public string GroundTag = "Ground"; 
 
     private bool grounded = false;
@@ -24,25 +24,21 @@ public class particles : MonoBehaviour
             {
                 grounded = true;
 
-                if (par != null)
+                var parObj = Instantiate(hitParticles, collision.contacts[0].point, Quaternion.identity);
+                parObj.GetComponent<ParticleSystem>().Play();
+
+                spriteObj.transform.position = collision.contacts[0].point;
+                spriteObj.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                spriteObj.transform.rotation = Quaternion.Euler(90f, 0f, 0f); 
+
+                // Встановлюємо спрайт
+                SpriteRenderer renderer = spriteObj.GetComponent<SpriteRenderer>();
+                if (renderer == null)
                 {
-                    par.transform.position = collision.contacts[0].point;
-                    par.Play();
-
-                    spriteObj.transform.position = collision.contacts[0].point;
-                    spriteObj.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-                    spriteObj.transform.rotation = Quaternion.Euler(90f, 0f, 0f); 
-
-                    // Встановлюємо спрайт
-                    SpriteRenderer renderer = spriteObj.GetComponent<SpriteRenderer>();
-                    if (renderer == null)
-                    {
-                        renderer = spriteObj.AddComponent<SpriteRenderer>();
-                    }
-                    Sprite sprite = Resources.Load<Sprite>("pngkey.com-holi-colour-splash-png-321924");
-                    renderer.sprite = sprite;
-
+                    renderer = spriteObj.AddComponent<SpriteRenderer>();
                 }
+                Sprite sprite = Resources.Load<Sprite>("pngkey.com-holi-colour-splash-png-321924");
+                renderer.sprite = sprite;
             }
         }
     }

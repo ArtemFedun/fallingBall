@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        panelWon = GameObject.FindGameObjectWithTag("Canvas").transform.GetChild(1).gameObject;
+        panelLost = GameObject.FindGameObjectWithTag("Canvas").transform.GetChild(0).gameObject;
         panelWon.SetActive(false);
         panelLost.SetActive(false);
     }
