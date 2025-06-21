@@ -11,6 +11,14 @@ public class ScoreHandler : MonoBehaviour
     [SerializeField] private int scoreBase;
     [SerializeField] private int streakBase;
     [SerializeField] private TextMeshProUGUI scoreText;
+
+    private void Start()
+    {
+        scoreText = GameObject.FindGameObjectWithTag("Canvas").transform.GetChild(2).GetComponent<TextMeshProUGUI>();
+        Score = 0;
+        streakValue = 0;
+        scoreText.text = $"SCORE: {Score}";
+    }
     
     public void AddScore()
     {

@@ -8,6 +8,11 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private float smoothSpeed = 0.125f;
     [SerializeField] private Vector3 offset;
 
+    void Start()
+    {
+        target = GameObject.FindGameObjectWithTag("Ball").transform;
+    }
+
     void FixedUpdate()
     {
         Vector3 desiredPosition = target.position + offset;
