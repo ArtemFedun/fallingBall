@@ -387,10 +387,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8993267280046873871, guid: 6439b9b6df4dd4f23bf92ea9fd585b34, type: 3}
-      propertyPath: panelLost
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2537197712923958204, guid: 24a5b981551624e0bb72598727e69198, type: 3}
       propertyPath: scoreText
       value: 
@@ -455,6 +451,10 @@ PrefabInstance:
       propertyPath: panelWon
       value: 
       objectReference: {fileID: 620384319}
+    - target: {fileID: 8993267280046873871, guid: 6439b9b6df4dd4f23bf92ea9fd585b34, type: 3}
+      propertyPath: panelLost
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -525,9 +525,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1632127645589756690, guid: 522541b76565e4026a687b55c6ce5312, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2726575036173083128, guid: 522541b76565e4026a687b55c6ce5312, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2998663114820654743, guid: 522541b76565e4026a687b55c6ce5312, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3046165315481042292, guid: 522541b76565e4026a687b55c6ce5312, type: 3}
       propertyPath: m_Pivot.x
