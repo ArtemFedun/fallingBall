@@ -303,6 +303,17 @@ MonoBehaviour:
   target: {fileID: 0}
   smoothSpeed: 0.125
   offset: {x: 0, y: 0, z: -15}
+--- !u!114 &1509881921 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8993267280046873871, guid: 6439b9b6df4dd4f23bf92ea9fd585b34, type: 3}
+  m_PrefabInstance: {fileID: 5242751622977160161}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25977893f1d95514794f2e34b8ae138f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1833067977 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8015076450826719560, guid: 522541b76565e4026a687b55c6ce5312, type: 3}
@@ -532,6 +543,10 @@ PrefabInstance:
     - target: {fileID: 2726575036173083128, guid: 522541b76565e4026a687b55c6ce5312, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 1509881921}
+    - target: {fileID: 2726575036173083128, guid: 522541b76565e4026a687b55c6ce5312, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartLevel
       objectReference: {fileID: 0}
     - target: {fileID: 2998663114820654743, guid: 522541b76565e4026a687b55c6ce5312, type: 3}
       propertyPath: m_IsActive
@@ -628,10 +643,18 @@ PrefabInstance:
     - target: {fileID: 6328936027311560701, guid: 522541b76565e4026a687b55c6ce5312, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 1509881921}
+    - target: {fileID: 6328936027311560701, guid: 522541b76565e4026a687b55c6ce5312, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartLevel
       objectReference: {fileID: 0}
     - target: {fileID: 8261591162926481975, guid: 522541b76565e4026a687b55c6ce5312, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 1509881921}
+    - target: {fileID: 8261591162926481975, guid: 522541b76565e4026a687b55c6ce5312, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextLevel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
